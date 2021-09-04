@@ -19,8 +19,8 @@ function makeGalleryItems(galleryItems) {
 refs.itemsList.innerHTML = makeGalleryItems(galleryItems);
 
 let gallery = new SimpleLightbox('.gallery a', {
-  showCounter: false,
-  disableScroll: false,
+  showCounter: true,
+  disableScroll: true,
   captionsData: 'alt',
   captionDelay: 250,
 });
