@@ -50,11 +50,22 @@ function onImgClick(evt) {
     onClose: instance => {
       document.removeEventListener('keydown', onEscPress);
     },
+    closable: false,
   };
 
   const instance = basicLightbox.create(`<img src="${evt.target.dataset.source}">`, modalOption);
 
   instance.show();
+
+  instance.element().addEventListener('click', onLightboxClick);
+
+  function onLightboxClick(e) {
+    if (e.target.nodeName === 'IMG') {
+      return;
+    }
+
+    instance.close();
+  }
 
   function onEscPress(e) {
     if (e.key === 'Escape') {
